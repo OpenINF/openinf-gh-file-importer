@@ -1,0 +1,40 @@
+{
+  "name": "@openinf/gh-file-importer",
+  "version": "1.0.0",
+  "description": "Imports arbitrary files from remote GitHub repositories",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npm run compile-src && npm run compile-doc",
+    "compile-src": "tsc --project ./",
+    "compile-doc": "jsdoc2md --template README.hbs --files index.js > ./README.md",
+    "test": "node index.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openinf/gh-file-importer.git"
+  },
+  "keywords": [
+    "github",
+    "repository",
+    "download"
+  ],
+  "author": "The OpenINF Authors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openinf/gh-file-importer/issues"
+  },
+  "homepage": "https://github.com/openinf/gh-file-importer#readme",
+  "dependencies": {
+    "@octokit/rest": "^18.0.15",
+    "@openinf/util-errors": "^2.0.6",
+    "@openinf/util-text": "^1.0.1",
+    "console-log-level": "^1.4.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/console-log-level": "^1.4.0",
+    "@types/node": "^14.14.22",
+    "@types/node-fetch": "^2.5.8",
+    "jsdoc-to-markdown": "^6.0.1"
+  }
+}

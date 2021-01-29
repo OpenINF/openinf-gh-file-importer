@@ -1,0 +1,67 @@
+<h1 align="center">@openinf/gh-file-importer</h1>
+
+<p align="center">Utility that imports arbitrary files from remote GitHub repositories</p>
+
+<br />
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@openinf/gh-file-importer"><img src="https://img.shields.io/npm/v/@openinf/gh-file-importer?style=plastic" alt="view on npm" /></a>
+  <img src="https://img.shields.io/github/languages/top/openinf/gh-file-importer?color=blue&style=plastic" />
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=blue&style=plastic" alt="License: MIT" /></a>
+</p>
+
+<br />
+
+_The high-level goal of `@openinf/gh-file-importer` is to serve as a Node.js
+package containing a utility for **importing arbitrary files from remote GitHub
+repos** allowing users to make use of them locally. As is the case with any
+software project in continuous development, omissions and errors may exist, for
+which contributions are welcome._
+
+<br />
+
+---
+
+<br />
+
+## Installation
+
+`@openinf/gh-file-importer` runs on Node.js and is available via `npm`.
+
+```shell
+npm install @openinf/gh-file-importer
+```
+
+## Usage
+
+To get started using the class provided by `@openinf/gh-file-importer`, all
+that needs to be done is either import/require (depending on the module format)
+the default export of the module or destructure a `GhFileImporter` named export.
+
+```ts
+import { GhFileImporter } from '@openinf/gh-file-importer';
+
+const DIR_TEMP = './tmp';
+const URL_RAW_PROPOSALS_README =
+  'https://raw.githubusercontent.com/tc39/proposals/HEAD/README.md';
+
+const ghFileImporter = new GhFileImporter({ destDir: DIR_TEMP });
+
+await ghFileImporter.importFileFromUrl(URL_RAW_PROPOSALS_README);
+```
+
+<br />
+
+---
+
+<br />
+
+{{>main}}
+
+<br />
+
+---
+
+<br />
+
+&copy; OpenINF
