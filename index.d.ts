@@ -9,17 +9,7 @@ import { Octokit } from '@octokit/rest';
 import { Logger } from 'console-log-level';
 interface GhFileImporterOpts {
     destDir: string;
-    log: {
-        debug: Function;
-        info: Function;
-        warn: Function;
-        error: Function;
-    };
-    request: {
-        agent: Function;
-        fetch: Function;
-        timeout: number;
-    };
+    log?: Logger;
 }
 export declare class GhFileImporter {
     octokit: Octokit;

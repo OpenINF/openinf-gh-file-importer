@@ -30,19 +30,7 @@ import fetch from 'node-fetch';
 
 interface GhFileImporterOpts {
   destDir: string,
-
-  log: {
-    debug: Function,
-    info: Function,
-    warn: Function,
-    error: Function
-  },
-
-  request: {
-    agent: Function,
-    fetch: Function,
-    timeout: number
-  }
+  log?: Logger
 }
 
 
@@ -62,7 +50,7 @@ export class GhFileImporter {
    * @returns {GhFileImporter}
    */
   constructor(opts:GhFileImporterOpts) {
-    // TODO: somehow validate the options passed in better
+    // TODO: Somehow validate the options passed in better.
     if (opts === undefined) {
     } else if (typeof opts.destDir !== 'string') {
       throw new InvalidArgTypeError('opts.destDir', 'string', opts.destDir);
@@ -72,7 +60,7 @@ export class GhFileImporter {
         'is invalid because an empty string was provided');
     }
 
-    this.log = log({ level: 'info' });
+    this.log = opts.log ? opts.log : log({ level: 'info' });
     this.options = opts; // Assign user-specified options.
 
     if (process.env.GITHUB_TOKEN) {
@@ -81,8 +69,6 @@ export class GhFileImporter {
     } else {
       this.octokit = new Octokit({});
     }
-
-    this.options.destDir = opts.destDir;
   }
 
   /* eslint-disable no-unused-vars */

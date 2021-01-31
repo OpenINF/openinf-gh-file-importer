@@ -32,7 +32,7 @@ class GhFileImporter {
      * @returns {GhFileImporter}
      */
     constructor(opts) {
-        // TODO: somehow validate the options passed in better
+        // TODO: Somehow validate the options passed in better.
         if (opts === undefined) {
         }
         else if (typeof opts.destDir !== 'string') {
@@ -41,7 +41,7 @@ class GhFileImporter {
         else if (opts.destDir.length === 0) {
             throw new util_errors_1.InvalidPropertyValueError('opts', 'destDir', opts.destDir, 'is invalid because an empty string was provided');
         }
-        this.log = console_log_level_1.default({ level: 'info' });
+        this.log = opts.log ? opts.log : console_log_level_1.default({ level: 'info' });
         this.options = opts; // Assign user-specified options.
         if (process.env.GITHUB_TOKEN) {
             // Use personal access token to prevent exceeding GitHub API rate limits.
@@ -50,7 +50,6 @@ class GhFileImporter {
         else {
             this.octokit = new rest_1.Octokit({});
         }
-        this.options.destDir = opts.destDir;
     }
     /* eslint-disable no-unused-vars */
     /**

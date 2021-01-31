@@ -34,9 +34,25 @@ npm install @openinf/gh-file-importer
 
 ## Usage
 
-To get started using the class provided by `@openinf/gh-file-importer`, all
-that needs to be done is either import/require (depending on the module format)
-the default export of the module or destructure a `GhFileImporter` named export.
+Import the `GhFileImporter` constructor based on your platform.
+
+### Node.js
+
+Install with `npm install @openinf/gh-file-importer`
+
+```
+const { GhFileImporter } = require('@openinf/gh-file-importer');
+// or: import { GhFileImporter } from '@openinf/gh-file-importer';
+
+const { GhFileImporter } = require('@openinf/gh-file-importer');
+```
+
+---
+
+## Options
+
+Now instantiate your your API. All options are optional except for `destDir`, which is the location
+where your files will be stored.
 
 ```ts
 import { GhFileImporter } from '@openinf/gh-file-importer';
@@ -48,6 +64,53 @@ const URL_RAW_PROPOSALS_README =
 const ghFileImporter = new GhFileImporter({ destDir: DIR_TEMP });
 
 await ghFileImporter.importFileFromUrl(URL_RAW_PROPOSALS_README);
+```
+
+### Logging
+
+For custom logging, pass an object with `debug`, `info`, `warn`, and `error` methods as the `log` option.
+
+```ts
+const ghFileImporter = new GhFileImporter({
+  destDir: DIR_TEMP,
+  log: {
+    debug: () => {},
+    info: () => {},
+    warn: console.warn,
+    error: console.error
+  }
+};
+```
+
+GhFileImporter has 4 built-in log methods
+
+> `ghFileImporter.log.debug(message[, additionalInfo])`
+> `ghFileImporter.log.info(message[, additionalInfo])`
+> `ghFileImporter.log.warn(message[, additionalInfo])`
+> `ghFileImporter.log.error(message[, additionalInfo])`
+
+They can be configured using the `log` client option. By default, `octokit.log.debug()` and `octokit.log.info()`
+are no-ops, while the other two call `console.warn()` and `console.error()` respectively.
+
+### Debug
+
+The simplest way to receive debug information is to set the `log` client option to `console`.
+
+```ts
+const ghFileImporter = new GhFileImporter({
+  destDir: DIR_TEMP,
+  log: console,
+});
+```
+
+If you like to support a configurable log level, we recommend using the
+[`console-log-level`](https://github.com/watson/console-log-level) module.
+
+```ts
+const ghFileImporter = new GhFileImporter({
+  destDir: DIR_TEMP,
+  log: require("console-log-level")({ level: "info" }),
+});
 ```
 
 <br />
