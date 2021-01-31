@@ -1,8 +1,9 @@
 {
   "name": "@openinf/gh-file-importer",
-  "version": "1.0.0",
-  "description": "Imports arbitrary files from remote GitHub repositories",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "Utility that imports arbitrary files from remote GitHub repositories",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "scripts": {
     "compile": "npm run compile-src && npm run compile-doc",
     "compile-src": "tsc --project ./",
@@ -16,6 +17,7 @@
   "keywords": [
     "github",
     "repository",
+    "file",
     "download"
   ],
   "author": "The OpenINF Authors",
