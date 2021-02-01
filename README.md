@@ -82,16 +82,6 @@ const ghFileImporter = new GhFileImporter({
 };
 ```
 
-GhFileImporter has 4 built-in log methods
-
-> `ghFileImporter.log.debug(message[, additionalInfo])`
-> `ghFileImporter.log.info(message[, additionalInfo])`
-> `ghFileImporter.log.warn(message[, additionalInfo])`
-> `ghFileImporter.log.error(message[, additionalInfo])`
-
-They can be configured using the `log` client option. By default, `octokit.log.debug()` and `octokit.log.info()`
-are no-ops, while the other two call `console.warn()` and `console.error()` respectively.
-
 ### Debug
 
 The simplest way to receive debug information is to set the `log` client option to `console`.
