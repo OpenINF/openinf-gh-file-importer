@@ -40,7 +40,7 @@ Import the `GhFileImporter` constructor based on your platform.
 
 Install with `npm install @openinf/gh-file-importer`
 
-```
+```ts
 const { GhFileImporter } = require('@openinf/gh-file-importer');
 // or: import { GhFileImporter } from '@openinf/gh-file-importer';
 
