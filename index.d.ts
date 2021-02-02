@@ -18,19 +18,29 @@ export declare class GhFileImporter {
     /**
      * Creates an instance of GhFileImporter.
      * @param {(GhFileImporterOpts | undefined)} options The options object.
+     * @throws {InvalidArgTypeError}
      * @throws {InvalidArgValueError}
      * @returns {GhFileImporter}
      */
     constructor(opts: GhFileImporterOpts);
     /**
-     * Validates a request to retrieve a path's metadata prior to doing so.
+     * Retrieves a path's metadata.
      * @param {string} owner The username associated with the repository.
      * @param {string} repo The repository name.
      * @param {!(string | undefined)} path The path to the file or folder.
      * @param {!(string | undefined)} ref The name of the commit/branch/tag.
-     * @returns {Promise<Object>} An object containing the path metadata.
+     * @returns {Promise<any>} An object containing the path metadata.
      */
-    fetchPathMetadata(owner: string, repo: string, path?: (undefined | string), ref?: (undefined | string)): Promise<Object>;
+    fetchPathMetadata(owner: string, repo: string, path?: (undefined | string), ref?: (undefined | string)): Promise<any>;
+    /**
+     * Retrieves a GitHub repo's metadata.
+     * @param {string} owner The repo owner (username).
+     * @param {string} repo The repo name.
+     * @throws {InvalidArgTypeError}
+     * @throws {InvalidArgValueError}
+     * @returns {Promise<string>} The file contents.
+     */
+    fetchRepoMetadata(owner: string, repo: string): Promise<any>;
     /**
      * Downloads a file from a remote GitHub repository and returns its contents.
      * @param {string} url The string representation of a remote file URL.

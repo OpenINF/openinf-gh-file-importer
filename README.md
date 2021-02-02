@@ -128,7 +128,8 @@ const ghFileImporter = new GhFileImporter({
 
 * [GhFileImporter](#GhFileImporter)
     * [new GhFileImporter(options)](#new_GhFileImporter_new)
-    * [.fetchPathMetadata(owner, repo, path, ref)](#GhFileImporter+fetchPathMetadata) ⇒ <code>Promise.&lt;Object&gt;</code>
+    * [.fetchPathMetadata(owner, repo, path, ref)](#GhFileImporter+fetchPathMetadata) ⇒ <code>Promise.&lt;any&gt;</code>
+    * [.fetchRepoMetadata(owner, repo)](#GhFileImporter+fetchRepoMetadata) ⇒ <code>Promise.&lt;string&gt;</code>
     * [.fetchFileContents(url)](#GhFileImporter+fetchFileContents) ⇒ <code>Promise.&lt;string&gt;</code>
     * [.importFileFromUrl(url)](#GhFileImporter+importFileFromUrl) ⇒ <code>Promise.&lt;string&gt;</code>
 
@@ -139,6 +140,7 @@ Creates an instance of GhFileImporter.
 
 **Throws**:
 
+- <code>InvalidArgTypeError</code> 
 - <code>InvalidArgValueError</code> 
 
 
@@ -148,11 +150,11 @@ Creates an instance of GhFileImporter.
 
 <a name="GhFileImporter+fetchPathMetadata"></a>
 
-### ghFileImporter.fetchPathMetadata(owner, repo, path, ref) ⇒ <code>Promise.&lt;Object&gt;</code>
-Validates a request to retrieve a path's metadata prior to doing so.
+### ghFileImporter.fetchPathMetadata(owner, repo, path, ref) ⇒ <code>Promise.&lt;any&gt;</code>
+Retrieves a path's metadata.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;Object&gt;</code> - An object containing the path metadata.  
+**Returns**: <code>Promise.&lt;any&gt;</code> - An object containing the path metadata.  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -160,6 +162,24 @@ Validates a request to retrieve a path's metadata prior to doing so.
 | repo | <code>string</code> | The repository name. |
 | path | <code>string</code> \| <code>undefined</code> | The path to the file or folder. |
 | ref | <code>string</code> \| <code>undefined</code> | The name of the commit/branch/tag. |
+
+<a name="GhFileImporter+fetchRepoMetadata"></a>
+
+### ghFileImporter.fetchRepoMetadata(owner, repo) ⇒ <code>Promise.&lt;string&gt;</code>
+Retrieves a GitHub repo's metadata.
+
+**Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
+**Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Throws**:
+
+- <code>InvalidArgTypeError</code> 
+- <code>InvalidArgValueError</code> 
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | <code>string</code> | The repo owner (username). |
+| repo | <code>string</code> | The repo name. |
 
 <a name="GhFileImporter+fetchFileContents"></a>
 

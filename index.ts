@@ -46,6 +46,7 @@ export class GhFileImporter {
   /**
    * Creates an instance of GhFileImporter.
    * @param {(GhFileImporterOpts | undefined)} options The options object.
+   * @throws {InvalidArgTypeError}
    * @throws {InvalidArgValueError}
    * @returns {GhFileImporter}
    */
@@ -74,16 +75,16 @@ export class GhFileImporter {
   /* eslint-disable no-unused-vars */
 
   /**
-   * Validates a request to retrieve a path's metadata prior to doing so.
+   * Retrieves a path's metadata.
    * @param {string} owner The username associated with the repository.
    * @param {string} repo The repository name.
    * @param {!(string | undefined)} path The path to the file or folder.
    * @param {!(string | undefined)} ref The name of the commit/branch/tag.
-   * @returns {Promise<Object>} An object containing the path metadata.
+   * @returns {Promise<any>} An object containing the path metadata.
    */
   async fetchPathMetadata(owner:string, repo:string,
     path:(undefined | string) = undefined,
-    ref:(undefined | string) = undefined):Promise<Object> {
+    ref:(undefined | string) = undefined):Promise<any> {
     /* eslint-enable no-unused-vars */
     const args = Array.from(arguments);
     const argNames = ['owner', 'repo', 'path', 'ref'];
@@ -135,6 +136,36 @@ export class GhFileImporter {
     });
 
     return this.octokit.repos.getContent(Object.fromEntries(octokitOptsMap));
+  }
+
+
+  /**
+   * Retrieves a GitHub repo's metadata.
+   * @param {string} owner The repo owner (username).
+   * @param {string} repo The repo name.
+   * @throws {InvalidArgTypeError}
+   * @throws {InvalidArgValueError}
+   * @returns {Promise<string>} The file contents.
+   */
+  async fetchRepoMetadata(owner:string, repo:string):Promise<any> {
+    if (typeof owner !== 'string') {
+      throw new InvalidArgTypeError('owner', 'string', owner);
+    } else if (owner.length === 0) {
+      throw new InvalidArgValueError('owner', owner, 'is invalid because an ' +
+        'empty string was provided');
+    } else if (typeof repo !== 'string') {
+      throw new InvalidArgTypeError('repo', 'string', repo);
+    } else if (repo.length === 0) {
+      throw new InvalidArgValueError('repo', repo, 'is invalid because an ' +
+        'empty string was provided');
+    }
+
+    const repoMetadata = await this.octokit.repos.get({
+      owner,
+      repo,
+    });
+
+    return repoMetadata;
   }
 
   /**
