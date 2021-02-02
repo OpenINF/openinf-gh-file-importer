@@ -43,8 +43,6 @@ Install with `npm install @openinf/gh-file-importer`
 ```ts
 const { GhFileImporter } = require('@openinf/gh-file-importer');
 // or: import { GhFileImporter } from '@openinf/gh-file-importer';
-
-const { GhFileImporter } = require('@openinf/gh-file-importer');
 ```
 
 ## Options
@@ -63,6 +61,10 @@ const ghFileImporter = new GhFileImporter({ destDir: DIR_TEMP });
 
 await ghFileImporter.importFileFromUrl(URL_RAW_PROPOSALS_README);
 ```
+
+**Note:** if needing to circumvent exceeding the GitHub API rate limit, be sure
+to have an environment variable called `GITHUB_TOKEN` containing a
+[GitHub person access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
 
 ### Logging
 
