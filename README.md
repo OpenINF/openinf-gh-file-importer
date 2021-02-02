@@ -129,7 +129,7 @@ const ghFileImporter = new GhFileImporter({
 * [GhFileImporter](#GhFileImporter)
     * [new GhFileImporter(options)](#new_GhFileImporter_new)
     * [.fetchPathMetadata(owner, repo, path, ref)](#GhFileImporter+fetchPathMetadata) ⇒ <code>Promise.&lt;any&gt;</code>
-    * [.fetchRepoMetadata(owner, repo)](#GhFileImporter+fetchRepoMetadata) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.fetchRepoMetadata(owner, repo)](#GhFileImporter+fetchRepoMetadata) ⇒ <code>Promise.&lt;any&gt;</code>
     * [.fetchFileContents(url)](#GhFileImporter+fetchFileContents) ⇒ <code>Promise.&lt;string&gt;</code>
     * [.importFileFromUrl(url)](#GhFileImporter+importFileFromUrl) ⇒ <code>Promise.&lt;string&gt;</code>
 
@@ -142,11 +142,14 @@ Creates an instance of GhFileImporter.
 
 - <code>InvalidArgTypeError</code> 
 - <code>InvalidArgValueError</code> 
+- <code>InvalidPropertyValueError</code> 
+- <code>MissingArgsError</code> 
+- <code>MissingOptionError</code> 
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| options | <code>GhFileImporterOpts</code> \| <code>undefined</code> | The options object. |
+| options | <code>GhFileImporterOptions</code> \| <code>undefined</code> | The options object. |
 
 <a name="GhFileImporter+fetchPathMetadata"></a>
 
@@ -155,6 +158,12 @@ Retrieves a path's metadata.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
 **Returns**: <code>Promise.&lt;any&gt;</code> - An object containing the path metadata.  
+**Throws**:
+
+- <code>InvalidArgTypeError</code> 
+- <code>InvalidArgValueError</code> 
+- <code>InvalidArgsNumberError</code> 
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -165,16 +174,17 @@ Retrieves a path's metadata.
 
 <a name="GhFileImporter+fetchRepoMetadata"></a>
 
-### ghFileImporter.fetchRepoMetadata(owner, repo) ⇒ <code>Promise.&lt;string&gt;</code>
+### ghFileImporter.fetchRepoMetadata(owner, repo) ⇒ <code>Promise.&lt;any&gt;</code>
 Retrieves a GitHub repo's metadata.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Returns**: <code>Promise.&lt;any&gt;</code> - An object containing the repo metadata.  
 **Throws**:
 
 - <code>InvalidArgTypeError</code> 
 - <code>InvalidArgValueError</code> 
 
+**See**: https://docs.github.com/en/rest/reference/repos#get-a-repository  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -188,6 +198,11 @@ Downloads a file from a remote GitHub repository and returns its contents.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
 **Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Throws**:
+
+- <code>InvalidArgTypeError</code> 
+- <code>InvalidArgValueError</code> 
+
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -200,6 +215,11 @@ Imports a file into the appropriate directory.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
 **Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Throws**:
+
+- <code>InvalidArgTypeError</code> 
+- <code>InvalidArgValueError</code> 
+
 
 | Param | Type | Description |
 | --- | --- | --- |

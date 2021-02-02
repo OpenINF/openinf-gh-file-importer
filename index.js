@@ -16,6 +16,7 @@ exports.GhFileImporter = void 0;
 // -----------------------------------------------------------------------------
 const util_text_1 = require("@openinf/util-text");
 const util_errors_1 = require("@openinf/util-errors");
+const util_object_1 = require("@openinf/util-object");
 const rest_1 = require("@octokit/rest");
 const path_1 = require("path");
 const promises_1 = require("fs/promises");
@@ -27,23 +28,26 @@ const node_fetch_1 = __importDefault(require("node-fetch"));
 class GhFileImporter {
     /**
      * Creates an instance of GhFileImporter.
-     * @param {(GhFileImporterOpts | undefined)} options The options object.
+     * @param {!(GhFileImporterOptions | undefined)} options The options object.
      * @throws {InvalidArgTypeError}
      * @throws {InvalidArgValueError}
+     * @throws {InvalidPropertyValueError}
+     * @throws {MissingArgsError}
+     * @throws {MissingOptionError}
      * @returns {GhFileImporter}
      */
-    constructor(opts) {
-        // TODO: Somehow validate the options passed in better.
-        if (opts === undefined) {
+    constructor(options) {
+        if (!util_object_1.hasOwn(options, 'destDir')) {
+            throw new util_errors_1.MissingOptionError('destDir');
         }
-        else if (typeof opts.destDir !== 'string') {
-            throw new util_errors_1.InvalidArgTypeError('opts.destDir', 'string', opts.destDir);
+        else if (typeof options.destDir !== 'string') {
+            throw new util_errors_1.InvalidArgTypeError('options.destDir', 'string', options.destDir);
         }
-        else if (opts.destDir.length === 0) {
-            throw new util_errors_1.InvalidPropertyValueError('opts', 'destDir', opts.destDir, 'is invalid because an empty string was provided');
+        else if (options.destDir.length === 0) {
+            throw new util_errors_1.InvalidPropertyValueError('options', 'destDir', options.destDir, 'is invalid because an empty string was provided');
         }
-        this.log = opts.log ? opts.log : console_log_level_1.default({ level: 'info' });
-        this.options = opts; // Assign user-specified options.
+        this.log = options.log ? options.log : console_log_level_1.default({ level: 'info' });
+        this.options = options; // Assign user-specified options.
         if (process.env.GITHUB_TOKEN) {
             // Use personal access token to prevent exceeding GitHub API rate limits.
             this.octokit = new rest_1.Octokit({ auth: process.env.GITHUB_TOKEN });
@@ -59,6 +63,9 @@ class GhFileImporter {
      * @param {string} repo The repository name.
      * @param {!(string | undefined)} path The path to the file or folder.
      * @param {!(string | undefined)} ref The name of the commit/branch/tag.
+     * @throws {InvalidArgTypeError}
+     * @throws {InvalidArgValueError}
+     * @throws {InvalidArgsNumberError}
      * @returns {Promise<any>} An object containing the path metadata.
      */
     async fetchPathMetadata(owner, repo, path = undefined, ref = undefined) {
@@ -72,11 +79,17 @@ class GhFileImporter {
                     if (typeof value !== 'string') {
                         throw new util_errors_1.InvalidArgTypeError(argNames[index], 'string', value);
                     }
+                    else if (value === '') {
+                        throw new util_errors_1.InvalidArgValueError(argNames[index], 'string', 'is invalid because an empty string was provided');
+                    }
                     octokitOptsMap.set(argNames[index], value);
                     break;
                 case 'repo':
                     if (typeof value !== 'string') {
                         throw new util_errors_1.InvalidArgTypeError(argNames[index], 'string', value);
+                    }
+                    else if (value === '') {
+                        throw new util_errors_1.InvalidArgValueError(argNames[index], 'string', 'is invalid because an empty string was provided');
                     }
                     octokitOptsMap.set(argNames[index], value);
                     break;
@@ -87,6 +100,9 @@ class GhFileImporter {
                     }
                     else if (typeof value !== 'string') {
                         throw new util_errors_1.InvalidArgTypeError(argNames[index], 'string', value);
+                    }
+                    else if (value === '') {
+                        throw new util_errors_1.InvalidArgValueError(argNames[index], 'string', 'is invalid because an empty string was provided');
                     }
                     else {
                         octokitOptsMap.set(argNames[index], value);
@@ -101,6 +117,9 @@ class GhFileImporter {
                     else if (typeof value !== 'string') {
                         throw new util_errors_1.InvalidArgTypeError(argNames[index], 'string', value);
                     }
+                    else if (value === '') {
+                        throw new util_errors_1.InvalidArgValueError(argNames[index], 'string', 'is invalid because an empty string was provided');
+                    }
                     else {
                         octokitOptsMap.set(argNames[index], value);
                     }
@@ -113,11 +132,12 @@ class GhFileImporter {
     }
     /**
      * Retrieves a GitHub repo's metadata.
+     * @see https://docs.github.com/en/rest/reference/repos#get-a-repository
      * @param {string} owner The repo owner (username).
      * @param {string} repo The repo name.
      * @throws {InvalidArgTypeError}
      * @throws {InvalidArgValueError}
-     * @returns {Promise<string>} The file contents.
+     * @returns {Promise<any>} An object containing the repo metadata.
      */
     async fetchRepoMetadata(owner, repo) {
         if (typeof owner !== 'string') {
@@ -143,6 +163,8 @@ class GhFileImporter {
     /**
      * Downloads a file from a remote GitHub repository and returns its contents.
      * @param {string} url The string representation of a remote file URL.
+     * @throws {InvalidArgTypeError}
+     * @throws {InvalidArgValueError}
      * @returns {Promise<string>} The file contents.
      */
     async fetchFileContents(url) {
@@ -162,6 +184,8 @@ class GhFileImporter {
     /**
      * Imports a file into the appropriate directory.
      * @param {string} url The string representation of a remote file URL.
+     * @throws {InvalidArgTypeError}
+     * @throws {InvalidArgValueError}
      * @returns {Promise<string>} The file contents.
      */
     async importFileFromUrl(url) {
