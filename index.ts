@@ -81,6 +81,7 @@ export class GhFileImporter {
 
   /**
    * Retrieves a path's metadata.
+   * @see https://docs.github.com/en/rest/reference/repos#get-repository-content
    * @param {string} owner The username associated with the repository.
    * @param {string} repo The repository name.
    * @param {!(string | undefined)} path The path to the file or folder.
