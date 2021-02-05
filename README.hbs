@@ -41,8 +41,7 @@ Import the `GhFileImporter` constructor based on your platform.
 Install with `npm install @openinf/gh-file-importer`
 
 ```ts
-const { GhFileImporter } = require('@openinf/gh-file-importer');
-// or: import { GhFileImporter } from '@openinf/gh-file-importer';
+import { GhFileImporter } from '@openinf/gh-file-importer';
 ```
 
 ## Options
@@ -54,12 +53,10 @@ where your files will be stored.
 import { GhFileImporter } from '@openinf/gh-file-importer';
 
 const DIR_TEMP = './tmp';
-const URL_RAW_PROPOSALS_README =
-  'https://raw.githubusercontent.com/tc39/proposals/HEAD/README.md';
 
 const ghFileImporter = new GhFileImporter({ destDir: DIR_TEMP });
 
-await ghFileImporter.importFileFromUrl(URL_RAW_PROPOSALS_README);
+await ghFileImporter.importContents('tc39', 'proposals', 'README.md');
 ```
 
 **Note:** if needing to circumvent exceeding the GitHub API rate limit, be sure

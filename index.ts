@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright OpenINF All Rights Reserved.
+ * Copyright the OpenINF authors. All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://open.inf.is/license
@@ -35,7 +35,6 @@ interface GhFileImporterOptions {
   log?: Logger
 }
 
-
 // -----------------------------------------------------------------------------
 // Public API
 // -----------------------------------------------------------------------------
@@ -55,7 +54,7 @@ export class GhFileImporter {
    * @throws {MissingOptionError}
    * @returns {GhFileImporter}
    */
-  constructor(options: GhFileImporterOptions) {
+  constructor(options:GhFileImporterOptions) {
     if (!hasOwn(options, 'destDir')) {
       throw new MissingOptionError('destDir');
     } else if (typeof options.destDir !== 'string') {
@@ -77,10 +76,8 @@ export class GhFileImporter {
     }
   }
 
-  /* eslint-disable no-unused-vars */
-
   /**
-   * Retrieves a path's metadata.
+   * Retrieves a repo or path's metadata.
    * @see https://docs.github.com/en/rest/reference/repos#get-repository-content
    * @param {string} owner The username associated with the repository.
    * @param {string} repo The repository name.
@@ -89,12 +86,15 @@ export class GhFileImporter {
    * @throws {InvalidArgTypeError}
    * @throws {InvalidArgValueError}
    * @throws {InvalidArgsNumberError}
-   * @returns {Promise<any>} An object containing the path metadata.
+   * @returns {Promise<any>} An object containing the metadata repo or path's
+   *  metadata.
    */
-  async fetchPathMetadata(owner:string, repo:string,
+  async fetchMetadata(
+    owner:string,
+    repo:string,
     path:(undefined | string) = undefined,
-    ref:(undefined | string) = undefined):Promise<any> {
-    /* eslint-enable no-unused-vars */
+    ref:(undefined | string) = undefined
+  ):Promise<any> {
     const args = Array.from(arguments);
     const argNames = ['owner', 'repo', 'path', 'ref'];
     const octokitOptsMap = new Map();
@@ -159,45 +159,96 @@ export class GhFileImporter {
     return this.octokit.repos.getContent(Object.fromEntries(octokitOptsMap));
   }
 
-
   /**
-   * Retrieves a GitHub repo's metadata.
-   * @see https://docs.github.com/en/rest/reference/repos#get-a-repository
-   * @param {string} owner The repo owner (username).
-   * @param {string} repo The repo name.
+   * Retrieves a path's contents.
+   * @param {string} owner The username associated with the repository.
+   * @param {string} repo The repository name.
+   * @param {string} path The path to the file or folder.
+   * @param {!(string | undefined)} ref The name of the commit/branch/tag.
    * @throws {InvalidArgTypeError}
    * @throws {InvalidArgValueError}
-   * @returns {Promise<any>} An object containing the repo metadata.
+   * @throws {InvalidArgsNumberError}
+   * @returns {Promise<string>} The file contents.
    */
-  async fetchRepoMetadata(owner:string, repo:string):Promise<any> {
-    if (typeof owner !== 'string') {
-      throw new InvalidArgTypeError('owner', 'string', owner);
-    } else if (owner.length === 0) {
-      throw new InvalidArgValueError('owner', owner, 'is invalid because an ' +
-        'empty string was provided');
-    } else if (typeof repo !== 'string') {
-      throw new InvalidArgTypeError('repo', 'string', repo);
-    } else if (repo.length === 0) {
-      throw new InvalidArgValueError('repo', repo, 'is invalid because an ' +
-        'empty string was provided');
-    }
+  async fetchFileContents(
+    owner:string,
+    repo:string,
+    path:string,
+    ref:(undefined | string) = undefined
+  ):Promise<string> {
+    const args = Array.from(arguments);
+    const argNames = ['owner', 'repo', 'path', 'ref'];
+    const octokitOptsMap = new Map();
 
-    const repoMetadata = await this.octokit.repos.get({
-      owner,
-      repo,
+    args.forEach((value, index) => {
+      switch (argNames[index]) {
+        case 'owner':
+          if (typeof value !== 'string') {
+            throw new InvalidArgTypeError(argNames[index], 'string', value);
+          } else if (value === '') {
+            throw new InvalidArgValueError(argNames[index], 'string',
+              'is invalid because an empty string was provided');
+          }
+          octokitOptsMap.set(argNames[index], value);
+          break;
+        case 'repo':
+          if (typeof value !== 'string') {
+            throw new InvalidArgTypeError(argNames[index], 'string', value);
+          } else if (value === '') {
+            throw new InvalidArgValueError(argNames[index], 'string',
+              'is invalid because an empty string was provided');
+          }
+          octokitOptsMap.set(argNames[index], value);
+          break;
+        case 'path':
+          if (typeof value !== 'string') {
+            throw new InvalidArgTypeError(argNames[index], 'string', value);
+          } else if (value === '') {
+            throw new InvalidArgValueError(argNames[index], 'string',
+              'is invalid because an empty string was provided');
+          } else {
+            octokitOptsMap.set(argNames[index], value);
+          }
+          break;
+        case 'ref':
+          if (value === undefined) {
+            this.log.debug(
+              `The ${curlyQuote('ref')} argument was missing and has been ` +
+              `omitted causing Octokit to use the repo default branch ` +
+              `(often ${curlyQuote('main')})`
+            );
+          } else if (typeof value !== 'string') {
+            throw new InvalidArgTypeError(argNames[index], 'string', value);
+          } else if (value === '') {
+            throw new InvalidArgValueError(argNames[index], 'string',
+              'is invalid because an empty string was provided');
+          } else {
+            octokitOptsMap.set(argNames[index], value);
+          }
+          break;
+        default:
+          throw new InvalidArgsNumberError('fetchPathMetadata', argNames.length,
+            args.length);
+      }
     });
 
-    return repoMetadata;
+    const res = await this.octokit.repos.getContent(Object.fromEntries(octokitOptsMap));
+    const data = Object(res.data);
+
+    let contentBuff = Buffer.from(data.content, 'base64');
+    let contentText = contentBuff.toString('utf-8');
+
+    return contentText;
   }
 
   /**
-   * Downloads a file from a remote GitHub repository and returns its contents.
+   * Retrieves the file contents from the URL provided.
    * @param {string} url The string representation of a remote file URL.
    * @throws {InvalidArgTypeError}
    * @throws {InvalidArgValueError}
    * @returns {Promise<string>} The file contents.
    */
-  async fetchFileContents(url:string):Promise<string> {
+  async fetchFileContentsFromUrl(url:string):Promise<string> {
     if (typeof url !== 'string') {
       throw new InvalidArgTypeError('url', 'string', url);
     } else if (url.length === 0) {
@@ -205,7 +256,6 @@ export class GhFileImporter {
         'empty string was provided');
     }
 
-    let data;
     this.log.info(
       `${ellipsify(`Download of ${blueify(underline(url))} has started`)}`
     );
@@ -217,13 +267,95 @@ export class GhFileImporter {
   }
 
   /**
-   * Imports a file into the appropriate directory.
+   * Imports a file into the directory provided for the `destDir` option.
    * @param {string} url The string representation of a remote file URL.
    * @throws {InvalidArgTypeError}
    * @throws {InvalidArgValueError}
    * @returns {Promise<string>} The file contents.
    */
-  async importFileFromUrl(url:string):Promise<string> {
+  async importContents(
+    owner:string,
+    repo:string,
+    path:string,
+    ref:(undefined | string) = undefined
+  ):Promise<string> {
+    const args = Array.from(arguments);
+    const argNames = ['owner', 'repo', 'path', 'ref'];
+    const octokitOptsMap = new Map();
+
+    args.forEach((value, index) => {
+      switch (argNames[index]) {
+        case 'owner':
+          if (typeof value !== 'string') {
+            throw new InvalidArgTypeError(argNames[index], 'string', value);
+          } else if (value === '') {
+            throw new InvalidArgValueError(argNames[index], 'string',
+              'is invalid because an empty string was provided');
+          }
+          octokitOptsMap.set(argNames[index], value);
+          break;
+        case 'repo':
+          if (typeof value !== 'string') {
+            throw new InvalidArgTypeError(argNames[index], 'string', value);
+          } else if (value === '') {
+            throw new InvalidArgValueError(argNames[index], 'string',
+              'is invalid because an empty string was provided');
+          }
+          octokitOptsMap.set(argNames[index], value);
+          break;
+        case 'path':
+          if (typeof value !== 'string') {
+            throw new InvalidArgTypeError(argNames[index], 'string', value);
+          } else if (value === '') {
+            throw new InvalidArgValueError(argNames[index], 'string',
+              'is invalid because an empty string was provided');
+          } else {
+            octokitOptsMap.set(argNames[index], value);
+          }
+          break;
+        case 'ref':
+          if (value === undefined) {
+            this.log.debug(
+              `The ${curlyQuote('ref')} argument was missing and has been ` +
+              `omitted causing Octokit to use the repo default branch ` +
+              `(often ${curlyQuote('main')})`
+            );
+          } else if (typeof value !== 'string') {
+            throw new InvalidArgTypeError(argNames[index], 'string', value);
+          } else if (value === '') {
+            throw new InvalidArgValueError(argNames[index], 'string',
+              'is invalid because an empty string was provided');
+          } else {
+            octokitOptsMap.set(argNames[index], value);
+          }
+          break;
+        default:
+          throw new InvalidArgsNumberError('fetchPathMetadata', argNames.length,
+            args.length);
+      }
+    });
+
+    const res = await this.octokit.repos.getContent(Object.fromEntries(octokitOptsMap));
+    const data = Object(res.data);
+
+    let contentBuff = Buffer.from(data.content, 'base64');
+    let contentText = contentBuff.toString('utf-8');
+
+    const filepath = pathResolve(this.options.destDir, path);
+    await writeFile(filepath, contentText);
+
+    return contentText;
+  }
+
+  /**
+   * Imports a file located at the supplied URL into the directory provided for
+   * the `destDir` option.
+   * @param {string} url The string representation of a remote file URL.
+   * @throws {InvalidArgTypeError}
+   * @throws {InvalidArgValueError}
+   * @returns {Promise<string>} The file contents.
+   */
+  async importContentsFromUrl(url:string):Promise<string> {
     if (typeof url !== 'string') {
       throw new InvalidArgTypeError('url', 'string', url);
     } else if (url.length === 0) {
@@ -231,7 +363,7 @@ export class GhFileImporter {
         'empty string was provided');
     }
 
-    const data = await this.fetchFileContents(url);
+    const data = await this.fetchFileContentsFromUrl(url);
     const filepath = pathResolve(this.options.destDir, pathBasename(url));
     await writeFile(filepath, data);
 
