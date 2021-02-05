@@ -1,6 +1,6 @@
 /**
  * @license
- * Copyright OpenINF All Rights Reserved.
+ * Copyright the OpenINF authors. All Rights Reserved.
  *
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://open.inf.is/license
@@ -27,7 +27,8 @@ export declare class GhFileImporter {
      */
     constructor(options: GhFileImporterOptions);
     /**
-     * Retrieves a path's metadata.
+     * Retrieves a repo or path's metadata.
+     * @see https://docs.github.com/en/rest/reference/repos#get-repository-content
      * @param {string} owner The username associated with the repository.
      * @param {string} repo The repository name.
      * @param {!(string | undefined)} path The path to the file or folder.
@@ -35,34 +36,46 @@ export declare class GhFileImporter {
      * @throws {InvalidArgTypeError}
      * @throws {InvalidArgValueError}
      * @throws {InvalidArgsNumberError}
-     * @returns {Promise<any>} An object containing the path metadata.
+     * @returns {Promise<any>} An object containing the metadata repo or path's
+     *  metadata.
      */
-    fetchPathMetadata(owner: string, repo: string, path?: (undefined | string), ref?: (undefined | string)): Promise<any>;
+    fetchMetadata(owner: string, repo: string, path?: (undefined | string), ref?: (undefined | string)): Promise<any>;
     /**
-     * Retrieves a GitHub repo's metadata.
-     * @see https://docs.github.com/en/rest/reference/repos#get-a-repository
-     * @param {string} owner The repo owner (username).
-     * @param {string} repo The repo name.
+     * Retrieves a path's contents.
+     * @param {string} owner The username associated with the repository.
+     * @param {string} repo The repository name.
+     * @param {string} path The path to the file or folder.
+     * @param {!(string | undefined)} ref The name of the commit/branch/tag.
      * @throws {InvalidArgTypeError}
      * @throws {InvalidArgValueError}
-     * @returns {Promise<any>} An object containing the repo metadata.
+     * @throws {InvalidArgsNumberError}
+     * @returns {Promise<string>} The file contents.
      */
-    fetchRepoMetadata(owner: string, repo: string): Promise<any>;
+    fetchFileContents(owner: string, repo: string, path: string, ref?: (undefined | string)): Promise<string>;
     /**
-     * Downloads a file from a remote GitHub repository and returns its contents.
+     * Retrieves the file contents from the URL provided.
      * @param {string} url The string representation of a remote file URL.
      * @throws {InvalidArgTypeError}
      * @throws {InvalidArgValueError}
      * @returns {Promise<string>} The file contents.
      */
-    fetchFileContents(url: string): Promise<string>;
+    fetchFileContentsFromUrl(url: string): Promise<string>;
     /**
-     * Imports a file into the appropriate directory.
+     * Imports a file into the directory provided for the `destDir` option.
      * @param {string} url The string representation of a remote file URL.
      * @throws {InvalidArgTypeError}
      * @throws {InvalidArgValueError}
      * @returns {Promise<string>} The file contents.
      */
-    importFileFromUrl(url: string): Promise<string>;
+    importContents(owner: string, repo: string, path: string, ref?: (undefined | string)): Promise<string>;
+    /**
+     * Imports a file located at the supplied URL into the directory provided for
+     * the `destDir` option.
+     * @param {string} url The string representation of a remote file URL.
+     * @throws {InvalidArgTypeError}
+     * @throws {InvalidArgValueError}
+     * @returns {Promise<string>} The file contents.
+     */
+    importContentsFromUrl(url: string): Promise<string>;
 }
 export {};

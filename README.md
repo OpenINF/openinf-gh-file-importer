@@ -41,8 +41,7 @@ Import the `GhFileImporter` constructor based on your platform.
 Install with `npm install @openinf/gh-file-importer`
 
 ```ts
-const { GhFileImporter } = require('@openinf/gh-file-importer');
-// or: import { GhFileImporter } from '@openinf/gh-file-importer';
+import { GhFileImporter } from '@openinf/gh-file-importer';
 ```
 
 ## Options
@@ -54,12 +53,10 @@ where your files will be stored.
 import { GhFileImporter } from '@openinf/gh-file-importer';
 
 const DIR_TEMP = './tmp';
-const URL_RAW_PROPOSALS_README =
-  'https://raw.githubusercontent.com/tc39/proposals/HEAD/README.md';
 
 const ghFileImporter = new GhFileImporter({ destDir: DIR_TEMP });
 
-await ghFileImporter.importFileFromUrl(URL_RAW_PROPOSALS_README);
+await ghFileImporter.importContents('tc39', 'proposals', 'README.md');
 ```
 
 **Note:** if needing to circumvent exceeding the GitHub API rate limit, be sure
@@ -130,10 +127,11 @@ const ghFileImporter = new GhFileImporter({
 
 * [GhFileImporter](#GhFileImporter)
     * [new GhFileImporter(options)](#new_GhFileImporter_new)
-    * [.fetchPathMetadata(owner, repo, path, ref)](#GhFileImporter+fetchPathMetadata) ⇒ <code>Promise.&lt;any&gt;</code>
-    * [.fetchRepoMetadata(owner, repo)](#GhFileImporter+fetchRepoMetadata) ⇒ <code>Promise.&lt;any&gt;</code>
-    * [.fetchFileContents(url)](#GhFileImporter+fetchFileContents) ⇒ <code>Promise.&lt;string&gt;</code>
-    * [.importFileFromUrl(url)](#GhFileImporter+importFileFromUrl) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.fetchMetadata(owner, repo, path, ref)](#GhFileImporter+fetchMetadata) ⇒ <code>Promise.&lt;any&gt;</code>
+    * [.fetchFileContents(owner, repo, path, ref)](#GhFileImporter+fetchFileContents) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.fetchFileContentsFromUrl(url)](#GhFileImporter+fetchFileContentsFromUrl) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.importContents(url)](#GhFileImporter+importContents) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.importContentsFromUrl(url)](#GhFileImporter+importContentsFromUrl) ⇒ <code>Promise.&lt;string&gt;</code>
 
 <a name="new_GhFileImporter_new"></a>
 
@@ -153,13 +151,36 @@ Creates an instance of GhFileImporter.
 | --- | --- | --- |
 | options | <code>GhFileImporterOptions</code> \| <code>undefined</code> | The options object. |
 
-<a name="GhFileImporter+fetchPathMetadata"></a>
+<a name="GhFileImporter+fetchMetadata"></a>
 
-### ghFileImporter.fetchPathMetadata(owner, repo, path, ref) ⇒ <code>Promise.&lt;any&gt;</code>
-Retrieves a path's metadata.
+### ghFileImporter.fetchMetadata(owner, repo, path, ref) ⇒ <code>Promise.&lt;any&gt;</code>
+Retrieves a repo or path's metadata.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;any&gt;</code> - An object containing the path metadata.  
+**Returns**: <code>Promise.&lt;any&gt;</code> - An object containing the metadata repo or path's
+ metadata.  
+**Throws**:
+
+- <code>InvalidArgTypeError</code> 
+- <code>InvalidArgValueError</code> 
+- <code>InvalidArgsNumberError</code> 
+
+**See**: https://docs.github.com/en/rest/reference/repos#get-repository-content  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| owner | <code>string</code> | The username associated with the repository. |
+| repo | <code>string</code> | The repository name. |
+| path | <code>string</code> \| <code>undefined</code> | The path to the file or folder. |
+| ref | <code>string</code> \| <code>undefined</code> | The name of the commit/branch/tag. |
+
+<a name="GhFileImporter+fetchFileContents"></a>
+
+### ghFileImporter.fetchFileContents(owner, repo, path, ref) ⇒ <code>Promise.&lt;string&gt;</code>
+Retrieves a path's contents.
+
+**Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
+**Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
 **Throws**:
 
 - <code>InvalidArgTypeError</code> 
@@ -171,32 +192,13 @@ Retrieves a path's metadata.
 | --- | --- | --- |
 | owner | <code>string</code> | The username associated with the repository. |
 | repo | <code>string</code> | The repository name. |
-| path | <code>string</code> \| <code>undefined</code> | The path to the file or folder. |
+| path | <code>string</code> | The path to the file or folder. |
 | ref | <code>string</code> \| <code>undefined</code> | The name of the commit/branch/tag. |
 
-<a name="GhFileImporter+fetchRepoMetadata"></a>
+<a name="GhFileImporter+fetchFileContentsFromUrl"></a>
 
-### ghFileImporter.fetchRepoMetadata(owner, repo) ⇒ <code>Promise.&lt;any&gt;</code>
-Retrieves a GitHub repo's metadata.
-
-**Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;any&gt;</code> - An object containing the repo metadata.  
-**Throws**:
-
-- <code>InvalidArgTypeError</code> 
-- <code>InvalidArgValueError</code> 
-
-**See**: https://docs.github.com/en/rest/reference/repos#get-a-repository  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| owner | <code>string</code> | The repo owner (username). |
-| repo | <code>string</code> | The repo name. |
-
-<a name="GhFileImporter+fetchFileContents"></a>
-
-### ghFileImporter.fetchFileContents(url) ⇒ <code>Promise.&lt;string&gt;</code>
-Downloads a file from a remote GitHub repository and returns its contents.
+### ghFileImporter.fetchFileContentsFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
+Retrieves the file contents from the URL provided.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
 **Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
@@ -210,10 +212,28 @@ Downloads a file from a remote GitHub repository and returns its contents.
 | --- | --- | --- |
 | url | <code>string</code> | The string representation of a remote file URL. |
 
-<a name="GhFileImporter+importFileFromUrl"></a>
+<a name="GhFileImporter+importContents"></a>
 
-### ghFileImporter.importFileFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
-Imports a file into the appropriate directory.
+### ghFileImporter.importContents(url) ⇒ <code>Promise.&lt;string&gt;</code>
+Imports a file into the directory provided for the `destDir` option.
+
+**Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
+**Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Throws**:
+
+- <code>InvalidArgTypeError</code> 
+- <code>InvalidArgValueError</code> 
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| url | <code>string</code> | The string representation of a remote file URL. |
+
+<a name="GhFileImporter+importContentsFromUrl"></a>
+
+### ghFileImporter.importContentsFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
+Imports a file located at the supplied URL into the directory provided for
+the `destDir` option.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
 **Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
@@ -231,7 +251,7 @@ Imports a file into the appropriate directory.
 
 ## \_\_importDefault
 **Kind**: global variable  
-**License**: Copyright OpenINF All Rights Reserved.
+**License**: Copyright the OpenINF authors. All Rights Reserved.
 
 Use of this source code is governed by an MIT-style license that can be
 found in the LICENSE file at https://open.inf.is/license  
