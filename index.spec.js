@@ -19,6 +19,10 @@ rmdirSync(DIR_TEMP, { recursive: true });
 mkdirSync(DIR_TEMP);
 
 (async () => {
-  const contents = await ghFileImporter.importFileFromUrl(URL_RAW_PROPOSALS_README);
+  let contents = await ghFileImporter.importContentsFromUrl(URL_RAW_PROPOSALS_README);
+  console.log(contents + '\r\n\r\n');
+
+  contents = await ghFileImporter.importContents('tc39', 'proposals',
+    'README.md');
   console.log(contents);
 })();
