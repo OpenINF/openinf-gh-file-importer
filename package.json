@@ -1,6 +1,6 @@
 {
   "name": "@openinf/gh-file-importer",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Utility that imports arbitrary files from remote GitHub repositories",
   "main": "./index.js",
   "types": "./index.d.ts",
