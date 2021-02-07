@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@openinf/gh-file-importer"><img src="https://img.shields.io/npm/v/@openinf/gh-file-importer?style=plastic" alt="view on npm" /></a>
   <img src="https://img.shields.io/github/languages/top/openinf/gh-file-importer?color=blue&style=plastic" />
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/openinf/openinf.github.io?color=blue&style=plastic" alt="License: MIT" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/openinf/gh-file-importer?color=blue&style=plastic" alt="License: MIT" /></a>
 </p>
 
 <br />
@@ -105,20 +105,6 @@ const ghFileImporter = new GhFileImporter({
 ---
 
 <br />
-
-## Classes
-
-<dl>
-<dt><a href="#GhFileImporter">GhFileImporter</a></dt>
-<dd></dd>
-</dl>
-
-## Members
-
-<dl>
-<dt><a href="#__importDefault">__importDefault</a></dt>
-<dd></dd>
-</dl>
 
 <a name="GhFileImporter"></a>
 
@@ -247,14 +233,6 @@ the `destDir` option.
 | --- | --- | --- |
 | url | <code>string</code> | The string representation of a remote file URL. |
 
-<a name="__importDefault"></a>
-
-## \_\_importDefault
-**Kind**: global variable  
-**License**: Copyright the OpenINF authors. All Rights Reserved.
-
-Use of this source code is governed by an MIT-style license that can be
-found in the LICENSE file at https://open.inf.is/license  
 
 <br />
 
@@ -262,4 +240,5 @@ found in the LICENSE file at https://open.inf.is/license
 
 <br />
 
-&copy; OpenINF
+<p align="center">&copy; The OpenINF Authors</center></p>
+<p align="center"><img height="32px" width="32px" src="https://raw.githubusercontent.com/openinf/openinf.github.io/live/logo.svg" /></p>
