@@ -34,10 +34,10 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@openinf/util-object": "^1.2.0",
+    "@openinf/util-object": "1.2.0",
     "@types/console-log-level": "1.4.2",
-    "@types/node": "^14.14.22",
-    "@types/node-fetch": "^2.5.8",
-    "jsdoc-to-markdown": "^6.0.1"
+    "@types/node": "14.14.22",
+    "@types/node-fetch": "2.5.8",
+    "jsdoc-to-markdown": "6.0.1"
   }
 }
