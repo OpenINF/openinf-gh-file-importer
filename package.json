@@ -31,7 +31,7 @@
     "@openinf/util-errors": "^2.0.6",
     "@openinf/util-text": "^1.0.1",
     "console-log-level": "^1.4.1",
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^3.2.6"
   },
   "devDependencies": {
     "@openinf/util-object": "2.0.1",
