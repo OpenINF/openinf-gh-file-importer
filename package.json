@@ -29,7 +29,7 @@
   "dependencies": {
     "@octokit/rest": "^18.0.15",
     "@openinf/util-errors": "^2.0.6",
-    "@openinf/util-text": "^1.0.1",
+    "@openinf/util-text": "^1.1.2",
     "console-log-level": "^1.4.1",
     "node-fetch": "^3.0.0"
   },
