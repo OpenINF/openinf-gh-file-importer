@@ -27,16 +27,16 @@
   },
   "homepage": "https://github.com/openinf/gh-file-importer#readme",
   "dependencies": {
-    "@octokit/rest": "^18.0.15",
-    "@openinf/util-errors": "^2.0.6",
-    "@openinf/util-text": "^1.1.2",
-    "console-log-level": "^1.4.1",
-    "node-fetch": "^3.0.0"
+    "@octokit/rest": "19.0.3",
+    "@openinf/util-errors": "2.0.7",
+    "@openinf/util-text": "1.1.2",
+    "console-log-level": "1.4.1",
+    "node-fetch": "3.2.10"
   },
   "devDependencies": {
     "@openinf/util-object": "2.0.1",
     "@types/console-log-level": "1.4.2",
-    "@types/node": "16.11.45",
+    "@types/node": "18.0.4",
     "@types/node-fetch": "3.0.2",
     "jsdoc-to-markdown": "7.1.1"
   }
