@@ -1,0 +1,4 @@
+*               text=auto
+build/**        linguist-generated=false
+lib/**          linguist-generated=true
+doc/**          linguist-documentation
