@@ -1,6 +1,8 @@
 {
-  "extends": [
-    "config:base"
-  ],
-  "rangeStrategy": "pin"
+  "extends": ["config:base", "github>whitesource/merge-confidence:beta"],
+  "lockFileMaintenance": { "enabled": true },
+  "postUpdateOptions": ["npmDedupe"],
+  "platformCommit": true,
+  "rangeStrategy": "pin",
+  "semanticCommits": "enabled"
 }
