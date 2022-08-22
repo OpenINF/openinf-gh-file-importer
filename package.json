@@ -5,7 +5,7 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "scripts": {
-    "compile": "npm run compile-src && npm run compile-doc",
+    "prepare": "npm run compile-src && npm run compile-doc",
     "compile-src": "tsc --project ./",
     "compile-doc": "jsdoc2md --template README.hbs --files index.js > ./README.md",
     "test": "node index.spec.js"
