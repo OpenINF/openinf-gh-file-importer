@@ -248,13 +248,21 @@ the `destDir` option.
 | url | <code>string</code> | The string representation of a remote file URL. |
 
 
-<br />
+<br /><br />
 
 ---
 
 <br />
 
 <div align="center">
+
+## Show your support
+
+<!-- Give a ⭐️ if this project helped you! -->
+
+If you like the project, give it a star ⭐️, it will be a great encouragement to us.
+
+<br /><br />
 
 &copy; The OpenINF Authors
 
