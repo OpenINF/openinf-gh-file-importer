@@ -256,11 +256,11 @@ the `destDir` option.
 
 <div align="center">
 
-## Show your support
+## Show Your Support
 
 <!-- Give a ⭐️ if this project helped you! -->
 
-If you like the project, give it a star ⭐️, it will be a great encouragement to us.
+If you like the project, [give it a star ⭐️], it will be a great encouragement to us.
 
 <br /><br />
 
@@ -276,6 +276,8 @@ If you like the project, give it a star ⭐️, it will be a great encouragement
 
 <!-- prettier-ignore-start -->
 <!-- PRESERVE LINK DEFINITION LABEL CASE - START -->
+
+[give it a star ⭐️]: https://github.com/openinf/gh-file-importer/stargazers
 
 [deepscan-badge]: https://badgen.net/deepscan/grade/team/18447/project/21799/branch/634010?icon=deepscan
 [deepscan-url]: https://deepscan.io/dashboard#view=project&tid=18447&pid=21799&bid=634010
