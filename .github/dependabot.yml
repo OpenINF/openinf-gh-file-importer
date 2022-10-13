@@ -1,6 +1,73 @@
+# $schema: https://json.schemastore.org/dependabot-2.0.json
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: "daily"
+      interval: weekly
+      day: tuesday
+      timezone: America/New_York # https://time.is/New_York#time_difference
+      time: '13:00'
+    open-pull-requests-limit: 10
+    reviewers:
+      - openinf/wg-a-team
+    commit-message:
+      prefix: 'chore(deps)'
+    labels:
+      - 'dependencies'
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+      timezone: America/New_York # https://time.is/New_York#time_difference
+      time: '13:00'
+    open-pull-requests-limit: 10
+    reviewers:
+      - openinf/wg-a-team
+    commit-message:
+      prefix: 'chore(deps)'
+      prefix-development: 'build(deps-dev)'
+    labels:
+      - 'dependencies'
+      - 'deps-dev'
+      - 'javascript'
+    ignore:
+      # Ignore all major TypeScript type definition updates from DefinitelyTyped for Node.js.
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
+      # Ignore monorepo dep bumping as they'll be better handled by Renovatebot as single PR.
+      - dependency-name: '@typescript-eslint/*'
+      - dependency-name: '@babel/*'
+  - package-ecosystem: bundler
+    directory: /
+    schedule:
+      interval: daily
+      timezone: America/New_York # https://time.is/New_York#time_difference
+      time: '13:00'
+    open-pull-requests-limit: 10
+    reviewers:
+      - openinf/wg-a-team
+    commit-message:
+      prefix: 'chore(deps)'
+      prefix-development: 'build(deps-dev)'
+    labels:
+      - 'dependencies'
+      - 'deps-dev'
+      - 'ruby'
+
+  - package-ecosystem: docker
+    directory: /.devcontainer
+    schedule:
+      interval: daily
+      timezone: America/New_York # https://time.is/New_York#time_difference
+      time: '13:00'
+    open-pull-requests-limit: 10
+    reviewers:
+      - openinf/wg-a-team
+    commit-message:
+      prefix: 'build(deps-dev)'
+    labels:
+      - 'dependencies'
+      - 'deps-dev'
+      - 'docker'
