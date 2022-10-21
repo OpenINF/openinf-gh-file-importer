@@ -7,7 +7,7 @@
   "scripts": {
     "prepare": "npm run compile-src && npm run compile-doc",
     "compile-src": "tsc --project ./",
-    "compile-doc": "jsdoc2md --template README.hbs --files index.js > ./README.md",
+    "compile-doc": "",
     "test": "node index.spec.js"
   },
   "repository": {
@@ -38,6 +38,6 @@
     "@types/console-log-level": "1.4.2",
     "@types/node": "18.11.3",
     "@types/node-fetch": "3.0.2",
-    "jsdoc-to-markdown": "7.1.1"
+    "typescript": "4.8.4"
   }
 }
