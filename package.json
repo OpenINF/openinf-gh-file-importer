@@ -31,14 +31,12 @@
     "@openinf/util-errors": "2.0.7",
     "@openinf/util-text": "1.1.2",
     "console-log-level": "1.4.1",
-    "node-fetch": "3.2.10"
+    "undici": "5.11.0"
   },
   "devDependencies": {
     "@openinf/util-object": "2.0.1",
     "@types/console-log-level": "1.4.2",
     "@types/node": "18.11.3",
-    "@types/node-fetch": "3.0.2",
-    "typescript": "4.8.4",
-    "undici": "5.11.0"
+    "typescript": "4.8.4"
   }
 }
