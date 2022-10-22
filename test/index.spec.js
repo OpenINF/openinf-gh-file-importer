@@ -7,8 +7,6 @@
  */
 
 const { GhFileImporter } = require("../lib/index.js");
-const { mkdirSync, rmdirSync } = require("node:fs");
-const { join } = require("node:path");
 const tempy = require("tempy");
 
 const URL_RAW_PROPOSALS_README =
