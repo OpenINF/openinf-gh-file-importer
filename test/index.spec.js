@@ -6,8 +6,8 @@
  * found in the LICENSE file at https://open.inf.is/license
  */
 
-const { mkdirSync, rmdirSync } = require("fs");
-const { GhFileImporter } = require("./index.js");
+const { mkdirSync, rmdirSync } = require("node:fs");
+const { GhFileImporter } = require("../lib/index.js");
 
 const DIR_TEMP = "./tmp";
 const URL_RAW_PROPOSALS_README =
