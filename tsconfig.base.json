@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "composite": true,
+    "declaration": true,
+    "declarationDir": "./types",
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ESNext"],
+    "module": "node16",
+    "moduleResolution": "node16",
+    "noImplicitReturns": true,
+    "outDir": "lib",
+    "paths": {},
+    "pretty": true,
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "rootDirs": ["src", "lib"],
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "ESNext",
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"]
+}

@@ -17,12 +17,12 @@ import {
   InvalidPropertyValueError,
   MissingOptionError,
 } from '@openinf/util-errors';
+import { fetch } from 'undici';
 import { hasOwn } from '@openinf/util-object';
 import { Octokit } from '@octokit/rest';
 import { basename as pathBasename, resolve as pathResolve } from 'path';
 import { writeFile } from 'fs/promises';
 import log, { Logger } from 'console-log-level';
-import fetch from 'node-fetch';
 
 interface GhFileImporterOptions {
   destDir: string,

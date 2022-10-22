@@ -2,13 +2,13 @@
   "name": "@openinf/gh-file-importer",
   "version": "2.0.1",
   "description": "Utility that imports arbitrary files from remote GitHub repositories",
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "prepare": "npm run compile-src && npm run compile-doc",
     "compile-src": "tsc --project ./",
     "compile-doc": "",
-    "test": "node index.spec.js"
+    "test": "node ./test/index.spec.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "@types/console-log-level": "1.4.2",
     "@types/node": "18.11.3",
     "@types/node-fetch": "3.0.2",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "undici": "5.11.0"
   }
 }
