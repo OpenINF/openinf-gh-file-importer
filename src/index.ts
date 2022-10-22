@@ -17,12 +17,12 @@ import {
   InvalidPropertyValueError,
   MissingOptionError,
 } from '@openinf/util-errors';
+import { fetch } from 'undici';
 import { hasOwn } from '@openinf/util-object';
 import { Octokit } from '@octokit/rest';
 import { basename as pathBasename, resolve as pathResolve } from 'path';
 import { writeFile } from 'fs/promises';
 import log, { Logger } from 'console-log-level';
-import fetch from 'node-fetch';
 
 interface GhFileImporterOptions {
   destDir: string,
@@ -229,8 +229,8 @@ export class GhFileImporter {
     const res = await this.octokit.repos.getContent(Object.fromEntries(octokitOptsMap));
     const data = Object(res.data);
 
-    let contentBuff = Buffer.from(data.content, 'base64');
-    let contentText = contentBuff.toString('utf-8');
+    const contentBuff = Buffer.from(data.content, 'base64');
+    const contentText = contentBuff.toString('utf-8');
 
     return contentText;
   }
@@ -332,8 +332,8 @@ export class GhFileImporter {
     const res = await this.octokit.repos.getContent(Object.fromEntries(octokitOptsMap));
     const data = Object(res.data);
 
-    let contentBuff = Buffer.from(data.content, 'base64');
-    let contentText = contentBuff.toString('utf-8');
+    const contentBuff = Buffer.from(data.content, 'base64');
+    const contentText = contentBuff.toString('utf-8');
 
     const filepath = pathResolve(this.options.destDir, path);
     await writeFile(filepath, contentText);
