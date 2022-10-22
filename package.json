@@ -37,6 +37,7 @@
     "@openinf/util-object": "2.0.1",
     "@types/console-log-level": "1.4.2",
     "@types/node": "18.11.3",
+    "tempy": "1.0.1",
     "typescript": "4.8.4"
   }
 }
