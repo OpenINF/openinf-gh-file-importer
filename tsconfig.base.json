@@ -10,7 +10,9 @@
     "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["ESNext"],
+    "lib": [
+      "ESNext"
+    ],
     "module": "node16",
     "moduleResolution": "node16",
     "noImplicitReturns": true,
@@ -19,14 +21,23 @@
     "pretty": true,
     "resolveJsonModule": true,
     "rootDir": "src",
-    "rootDirs": ["src", "lib"],
+    "rootDirs": [
+      "src",
+      "lib"
+    ],
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
     "target": "ESNext",
-    "typeRoots": ["node_modules/@types"],
-    "types": ["node"]
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ]
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts"
+  ]
 }
