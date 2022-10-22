@@ -229,8 +229,8 @@ export class GhFileImporter {
     const res = await this.octokit.repos.getContent(Object.fromEntries(octokitOptsMap));
     const data = Object(res.data);
 
-    let contentBuff = Buffer.from(data.content, 'base64');
-    let contentText = contentBuff.toString('utf-8');
+    const contentBuff = Buffer.from(data.content, 'base64');
+    const contentText = contentBuff.toString('utf-8');
 
     return contentText;
   }
@@ -332,8 +332,8 @@ export class GhFileImporter {
     const res = await this.octokit.repos.getContent(Object.fromEntries(octokitOptsMap));
     const data = Object(res.data);
 
-    let contentBuff = Buffer.from(data.content, 'base64');
-    let contentText = contentBuff.toString('utf-8');
+    const contentBuff = Buffer.from(data.content, 'base64');
+    const contentText = contentBuff.toString('utf-8');
 
     const filepath = pathResolve(this.options.destDir, path);
     await writeFile(filepath, contentText);
