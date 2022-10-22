@@ -25,5 +25,5 @@ types/
 lib/
 dist/
 
-# Ignore typescript log files.
+# Ignore TypeScript log files.
 tsconfig.tsbuildinfo
