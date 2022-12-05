@@ -3,6 +3,7 @@
   "extends": [
     "config:base",
     ":gitSignOff",
+    ":preserveSemverRanges",
     "github>whitesource/merge-confidence:beta"
   ],
   "lockFileMaintenance": { "enabled": false },
