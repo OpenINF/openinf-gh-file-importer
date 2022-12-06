@@ -22,8 +22,8 @@
       "packageRules": [
         {
           "matchDepTypes": ["dependencies"],
-          "commitMessagePrefix": "deps:",
-          "labels": ["dependencies", "deps-production"]
+          "commitMessagePrefix": "chore(deps):",
+          "labels": ["dependencies", "deps-prod"]
         }
       ]
     },
