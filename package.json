@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@types/console-log-level": "1.4.2",
-    "@types/node": "18.11.14",
+    "@types/node": "18.11.15",
     "tempy": "1.0.1",
     "typescript": "4.9.4"
   }
