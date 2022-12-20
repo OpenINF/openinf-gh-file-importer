@@ -7,17 +7,12 @@
     "github>whitesource/merge-confidence:beta"
   ],
   "lockFileMaintenance": { "enabled": false },
-  "postUpdateOptions": ["npmDedupe"],
   "platformCommit": true,
   "rangeStrategy": "pin",
   "semanticCommits": "enabled",
   "commitMessageAction": "bump",
   "commitMessageTopic": "{{depName}}",
   "packageRules": [
-    {
-      "matchDepTypes": ["optionalDependencies"],
-      "addLabels": ["optional"]
-    },
     {
       "packageRules": [
         {
