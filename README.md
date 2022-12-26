@@ -289,7 +289,7 @@ If you like the project, [give it a star ⭐️], it will be a great encourageme
 [license-badge-url]: https://spdx.org/licenses/MIT.html 'License: MIT'
 [matrix-badge--shields]: https://img.shields.io/badge/matrix-join%20chat-%2346BC99?logo=matrix 'Chat on Matrix'
 [matrix-url]: https://matrix.to/#/#openinf:matrix.org 'You&apos;re invited to talk on Matrix'
-[npm-badge--shields]: https://img.shields.io/npm/v/@openinf/gh-file-importer/latest.svg?logo=npm 'View on npm'
+[npm-badge--shields]: https://img.shields.io/npm/v/@openinf/gh-file-importer/latest.svg?logo=npm&color=fe7d37 'View on npm'
 [npm-badge-url]: https://www.npmjs.com/package/@openinf/gh-file-importer#top 'View on npm'
 [prettier-badge]: https://img.shields.io/badge/code_style-Prettier-ff69b4.svg?logo=prettier 'Code Style: Prettier'
 [prettier-url]: https://prettier.io/playground 'Code Style: Prettier'
