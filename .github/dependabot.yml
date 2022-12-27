@@ -14,6 +14,7 @@ updates:
     commit-message:
       prefix: 'chore(deps)'
     labels:
+      - 'build'
       - 'dependencies'
 
   - package-ecosystem: npm
@@ -29,6 +30,7 @@ updates:
       prefix: 'chore(deps)'
       prefix-development: 'build(deps-dev)'
     labels:
+      - 'build'
       - 'dependencies'
       - 'deps-dev'
       - 'javascript'
@@ -39,6 +41,7 @@ updates:
       # Ignore monorepo dep bumping as they'll be better handled by Renovatebot as single PR.
       - dependency-name: '@typescript-eslint/*'
       - dependency-name: '@babel/*'
+
   - package-ecosystem: bundler
     directory: /
     schedule:
@@ -52,6 +55,7 @@ updates:
       prefix: 'chore(deps)'
       prefix-development: 'build(deps-dev)'
     labels:
+      - 'build'
       - 'dependencies'
       - 'deps-dev'
       - 'ruby'
@@ -68,6 +72,7 @@ updates:
     commit-message:
       prefix: 'build(deps-dev)'
     labels:
+      - 'build'
       - 'dependencies'
       - 'deps-dev'
       - 'docker'
