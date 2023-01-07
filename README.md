@@ -76,10 +76,38 @@ which contributions are welcome._
 
 ## Installation
 
-`@openinf/gh-file-importer` runs on Node.js and is available via `npm`.
+`@openinf/gh-file-importer` runs on
+[supported versions of Node.js](#platform--node-js-lts) and is available via
+**`npm`**, **`pnpm`**, or **`yarn`**.
+
+**Using the npm CLI**
+
+<sup>See the
+[official documentation for this command](https://docs.npmjs.com/cli/commands/npm-install)
+for more information.</sup>
 
 ```shell
-npm install @openinf/gh-file-importer
+npm i @openinf/gh-file-importer
+```
+
+**Using the pnpm CLI**
+
+<sup>See the
+[official documentation for this command](https://pnpm.io/cli/install) for more
+information.</sup>
+
+```shell
+pnpm i @openinf/gh-file-importer
+```
+
+**Using the Yarn 1 CLI (Classic)**
+
+<sup>See the
+[official documentation for this command](https://classic.yarnpkg.com/en/docs/cli/add)
+for more information.</sup>
+
+```shell
+yarn add @openinf/gh-file-importer
 ```
 
 ## Usage
