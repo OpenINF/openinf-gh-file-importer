@@ -124,7 +124,7 @@ import { GhFileImporter } from '@openinf/gh-file-importer';
 
 ## Options
 
-Now instantiate your your API. All options are optional except for `destDir`, which is the location
+Now instantiate your API. All options are optional except for `destDir`, which is the location
 where your files will be stored.
 
 ```ts
