@@ -7,7 +7,6 @@ Utility that imports arbitrary files from remote GitHub repositories
 <br />
 
 [!['View on npm'][npm-badge--shields]][npm-badge-url]
-!['TypeScript types: included'][types-included-badge]
 [!['DeepScan grade'][deepscan-badge]][deepscan-url]
 [!['License: MIT'][license-badge--shields]][license-badge-url]
 
@@ -354,4 +353,3 @@ greatly encourage us.
 [npm-badge-url]: https://www.npmjs.com/package/@openinf/gh-file-importer#top 'View on npm'
 [prettier-badge]: https://img.shields.io/badge/code_style-Prettier-ff69b4.svg?logo=prettier 'Code Style: Prettier'
 [prettier-url]: https://prettier.io/playground 'Code Style: Prettier'
-[types-included-badge]: https://badgen.net/npm/types/@openinf/gh-file-importer?icon=typescript 'TypeScript types: included'
