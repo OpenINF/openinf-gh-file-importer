@@ -1,8 +1,8 @@
 auto: true
+pull_requests: false
+restylers_version: dev
 
 commit_template: |
   style: apply changes from ${restyler.name} restyler
 
   Signed-off-by: Restyled Commits <commits@restyled.io>
-pull_requests: false
-restylers_version: dev
