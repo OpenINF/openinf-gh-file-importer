@@ -43,6 +43,6 @@
     "@types/console-log-level": "1.4.2",
     "@types/node": "18.11.18",
     "tempy": "1.0.1",
-    "typescript": "4.9.4"
+    "typescript": "4.9.5"
   }
 }
