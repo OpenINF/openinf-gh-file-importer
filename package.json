@@ -37,7 +37,7 @@
     "@openinf/util-object": "2.0.1",
     "@openinf/util-text": "1.1.2",
     "console-log-level": "1.4.1",
-    "undici": "5.15.1"
+    "undici": "5.19.1"
   },
   "devDependencies": {
     "@types/console-log-level": "1.4.2",
