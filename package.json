@@ -37,11 +37,11 @@
     "@openinf/util-object": "2.0.1",
     "@openinf/util-text": "1.1.2",
     "console-log-level": "1.4.1",
-    "undici": "5.19.1"
+    "undici": "5.20.0"
   },
   "devDependencies": {
     "@types/console-log-level": "1.4.2",
-    "@types/node": "18.13.0",
+    "@types/node": "18.14.0",
     "tempy": "git+ssh://git@github.com:OpenINF/openinf-tempy.git#semver:^1.0.1",
     "typescript": "4.9.5"
   }
