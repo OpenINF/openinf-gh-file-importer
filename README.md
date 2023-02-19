@@ -115,8 +115,6 @@ Import the `GhFileImporter` constructor based on your platform.
 
 ### Node.js
 
-Install with `npm install @openinf/gh-file-importer`
-
 ```ts
 import { GhFileImporter } from '@openinf/gh-file-importer';
 ```
