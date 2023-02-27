@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@types/console-log-level": "1.4.2",
-    "@types/node": "18.14.0",
+    "@types/node": "18.14.1",
     "tempy": "OpenINF/openinf-tempy#semver:^1.0.1",
     "typescript": "4.9.5"
   }
