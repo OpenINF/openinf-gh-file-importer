@@ -96,7 +96,7 @@ npm i @openinf/gh-file-importer
 information.</sup>
 
 ```shell
-pnpm i @openinf/gh-file-importer
+pnpm add @openinf/gh-file-importer
 ```
 
 **Using the Yarn 1 CLI (Classic)**
