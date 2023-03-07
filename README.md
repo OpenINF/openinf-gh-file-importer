@@ -92,7 +92,7 @@ npm i @openinf/gh-file-importer
 **Using the pnpm CLI**
 
 <sup>See the
-[official documentation for this command](https://pnpm.io/cli/install) for more
+[official documentation for this command](https://pnpm.io/cli/add) for more
 information.</sup>
 
 ```shell
