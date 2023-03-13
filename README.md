@@ -7,7 +7,6 @@ Utility that imports arbitrary files from remote GitHub repositories
 <br />
 
 [!['View on npm'][npm-badge--shields]][npm-badge-url]
-[!['DeepScan grade'][deepscan-badge]][deepscan-url]
 [!['License: MIT'][license-badge--shields]][license-badge-url]
 
 </div>
@@ -62,7 +61,6 @@ which contributions are welcome._
 
 [![Code Style: Prettier][prettier-badge]][prettier-url]
 [![Commit Style: Conventional Commits][conventional-commits-badge]][conventional-commits-url]
-[![Active Issues: DeepSource][deepsource-badge]][deepsource-url]
 [![Chat on Matrix][matrix-badge--shields]][matrix-url]
 
 </div>
@@ -336,10 +334,6 @@ greatly encourage us.
 
 </div>
 
-[deepscan-badge]: https://badgen.net/deepscan/grade/team/18447/project/21799/branch/634010?icon=deepscan
-[deepscan-url]: https://deepscan.io/dashboard#view=project&tid=18447&pid=21799&bid=634010
-[deepsource-badge]: https://deepsource.io/gh/openinf/openinf-gh-file-importer.svg/?label=active+issues&show_trend=true&token=EDuWqCSX74CqsodrPKf1a6Jy
-[deepsource-url]: https://deepsource.io/gh/openinf/openinf-gh-file-importer/?ref=repository-badge 'Active Issues: DeepSource'
 [conventional-commits-badge]: https://img.shields.io/badge/commit%20style-Conventional-%23fa6673?logoColor=white&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCI+PHBhdGggc3R5bGU9ImZpbGw6ICNGRkYiIGQ9Ik0xNSwyQTEzLDEzLDAsMSwxLDIsMTUsMTMsMTMsMCwwLDEsMTUsMm0wLTJBMTUsMTUsMCwxLDAsMzAsMTUsMTUsMTUsMCwwLDAsMTUsMFoiLz48L3N2Zz4K 'Commit Style: Conventional Commits'
 [conventional-commits-url]: https://www.conventionalcommits.org 'Commit Style: Conventional Commits'
 [give it a star ⭐️]: https://github.com/OpenINF/openinf-gh-file-importer/stargazers
