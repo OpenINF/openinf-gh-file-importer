@@ -2,7 +2,7 @@
 
 <div align="center">
 
-# @openinf/gh-file-importer
+## @openinf/gh-file-importer
 
 Utility that imports arbitrary files from remote GitHub repositories
 
@@ -73,7 +73,7 @@ which contributions are welcome._
 
 <br />
 
-## Installation
+### Installation
 
 `@openinf/gh-file-importer` runs on
 [supported versions of Node.js](#platform--node-js-lts) and is available via
@@ -109,7 +109,7 @@ for more information.</sup>
 yarn add @openinf/gh-file-importer
 ```
 
-## Usage
+### Usage
 
 Import the `GhFileImporter` constructor based on your platform.
 
@@ -119,7 +119,7 @@ Import the `GhFileImporter` constructor based on your platform.
 import { GhFileImporter } from '@openinf/gh-file-importer';
 ```
 
-## Options
+### Options
 
 Now instantiate your API. All options are optional except for `destDir`, which is the location
 where your files will be stored.
@@ -138,7 +138,7 @@ await ghFileImporter.importContents('tc39', 'proposals', 'README.md');
 to have an environment variable called `GITHUB_TOKEN` containing a
 [GitHub person access token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
 
-### Logging
+#### Logging
 
 For custom logging, pass an object with `debug`, `info`, `warn`, and `error` methods as the `log` option.
 
@@ -154,7 +154,7 @@ const ghFileImporter = new GhFileImporter({
 };
 ```
 
-### Debug
+#### Debug
 
 The simplest way to receive debug information is to set the `log` client option to `console`.
 
@@ -183,7 +183,7 @@ const ghFileImporter = new GhFileImporter({
 
 <a name="GhFileImporter"></a>
 
-## GhFileImporter
+### GhFileImporter
 **Kind**: global class  
 
 * [GhFileImporter](#GhFileImporter)
@@ -317,7 +317,7 @@ the `destDir` option.
 
 <div align="center">
 
-## Show Your Support
+### Show Your Support
 
 <!-- Give a ⭐️ if this project helped you! -->
 
