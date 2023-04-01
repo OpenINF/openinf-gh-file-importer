@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/release-level--unstable.svg?sanitize=true" />
+<img src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/release-level-banner--unstable.svg?sanitize=true" />
 
 <div align="center">
 
@@ -331,7 +331,7 @@ greatly encourage us.
 <br />
 
 <a title="The OpenINF website" href="https://open.inf.is" rel="author">
-  <img alt="The OpenINF logo" height="32px" width="32px" src="https://raw.githubusercontent.com/openinf/openinf.github.io/live/logo.svg?sanitize=true" />
+  <img alt="The OpenINF logo" height="32px" width="32px" src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/logo.svg?sanitize=true" />
 </a>
 
 </div>
