@@ -43,6 +43,6 @@
     "@types/console-log-level": "1.4.2",
     "@types/node": "18.15.8",
     "tempy": "OpenINF/openinf-tempy#semver:^1.0.1",
-    "typescript": "5.0.2"
+    "typescript": "5.0.4"
   }
 }
