@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/release-level-banner--unstable.svg?sanitize=true" />
+[![Orange banner indicating a preview software component][release-level-banner--unstable]](#)
 
 <div align="center">
 
@@ -377,8 +377,9 @@ us.
 
 <br /><br />
 
-<img src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/release-level-banner--unstable.svg?sanitize=true" />
+[![Orange banner indicating a preview software component][release-level-banner--unstable]](#)
 
+<!-- BEGIN LINK DEFINITIONS -->
 [conventional-commits-badge]: https://img.shields.io/badge/commit%20style-Conventional-%23fa6673?logoColor=white&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCAzMCI+PHBhdGggc3R5bGU9ImZpbGw6ICNGRkYiIGQ9Ik0xNSwyQTEzLDEzLDAsMSwxLDIsMTUsMTMsMTMsMCwwLDEsMTUsMm0wLTJBMTUsMTUsMCwxLDAsMzAsMTUsMTUsMTUsMCwwLDAsMTUsMFoiLz48L3N2Zz4K 'Commit Style: Conventional Commits'
 [conventional-commits-url]: https://www.conventionalcommits.org 'Commit Style: Conventional Commits'
 [give it a star ⭐️]: https://github.com/OpenINF/openinf-gh-file-importer/stargazers
@@ -390,3 +391,5 @@ us.
 [npm-badge-url]: https://www.npmjs.com/package/@openinf/gh-file-importer#top 'View on npm'
 [prettier-badge]: https://img.shields.io/badge/code_style-Prettier-ff69b4.svg?logo=prettier 'Code Style: Prettier'
 [prettier-url]: https://prettier.io/playground 'Code Style: Prettier'
+[release-level-banner--unstable]: https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/release-level-banner--unstable.svg?sanitize=true 'Banner for Release Level: Unstable'
+<!-- END LINK DEFINITIONS -->
