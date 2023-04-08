@@ -19,7 +19,7 @@ _The high-level goal of `@openinf/gh-file-importer` is to serve as a Node.js
 package containing a utility for **importing arbitrary files from remote GitHub
 repos** allowing users to make use of them locally. As is the case with any
 software project in continuous development, omissions and errors may exist, for
-which contributions are welcome._
+which [contributions are welcome](#contributing)._
 
 <br />
 
