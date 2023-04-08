@@ -67,7 +67,21 @@ which contributions are welcome._
 
 </div>
 
+<br /><br />
+
+---
+
 <br />
+
+### Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [API](#api)
+- [Contributing](#contributing)
+- [License](#license)
+
+<br /><br />
 
 ---
 
@@ -109,17 +123,19 @@ for more information.</sup>
 yarn add @openinf/gh-file-importer
 ```
 
+<br /><br />
+
 ### Usage
 
 Import the `GhFileImporter` constructor based on your platform.
 
-### Node.js
+#### Node.js
 
 ```ts
 import { GhFileImporter } from '@openinf/gh-file-importer';
 ```
 
-### Options
+#### Options
 
 Now instantiate your API. All options are optional except for `destDir`, which is the location
 where your files will be stored.
@@ -175,11 +191,9 @@ const ghFileImporter = new GhFileImporter({
 });
 ```
 
-<br />
+<br /><br />
 
----
-
-<br />
+### API
 
 <a name="GhFileImporter"></a>
 
