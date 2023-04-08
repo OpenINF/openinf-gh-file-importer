@@ -308,7 +308,6 @@ the `destDir` option.
 | --- | --- | --- |
 | url | <code>string</code> | The string representation of a remote file URL. |
 
-
 <br /><br />
 
 ---
@@ -319,10 +318,11 @@ the `destDir` option.
 
 ### Show Your Support
 
-<!-- Give a ⭐️ if this project helped you! -->
+<br />
 
-If you like the project or want to bookmark it, [give it a star ⭐️]; it will
-greatly encourage us.
+If you like the project (or want to bookmark it)&nbsp;&mdash;<br />
+&mdash;&nbsp;[give it a star ⭐️][]&nbsp;&mdash;&nbsp;it will greatly encourage
+us.
 
 <br /><br />
 
@@ -331,7 +331,7 @@ greatly encourage us.
 <br />
 
 <a title="The OpenINF website" href="https://open.inf.is" rel="author">
-  <img alt="The OpenINF logo" height="32px" width="32px" src="https://raw.githubusercontent.com/OpenINF/openinf.github.io/live/assets/img/svg/logo.svg?sanitize=true" />
+  <img alt="The OpenINF logo" height="32px" width="32px" src="https://raw.githubusercontent.com/openinf/openinf.github.io/live/assets/img/svg/logo.svg?sanitize=true" />
 </a>
 
 </div>
