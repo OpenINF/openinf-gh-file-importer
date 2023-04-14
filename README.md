@@ -197,7 +197,7 @@ const ghFileImporter = new GhFileImporter({
 
 <a name="GhFileImporter"></a>
 
-### GhFileImporter
+#### GhFileImporter
 **Kind**: global class  
 
 * [GhFileImporter](#GhFileImporter)
@@ -210,7 +210,7 @@ const ghFileImporter = new GhFileImporter({
 
 <a name="new_GhFileImporter_new"></a>
 
-### new GhFileImporter(options)
+#### new GhFileImporter(options)
 Creates an instance of GhFileImporter.
 
 **Throws**:
@@ -228,7 +228,7 @@ Creates an instance of GhFileImporter.
 
 <a name="GhFileImporter+fetchMetadata"></a>
 
-### ghFileImporter.fetchMetadata(owner, repo, path, ref) ⇒ <code>Promise.&lt;any&gt;</code>
+#### ghFileImporter.fetchMetadata(owner, repo, path, ref) ⇒ <code>Promise.&lt;any&gt;</code>
 Retrieves a repo or path's metadata.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
@@ -251,7 +251,7 @@ Retrieves a repo or path's metadata.
 
 <a name="GhFileImporter+fetchFileContents"></a>
 
-### ghFileImporter.fetchFileContents(owner, repo, path, ref) ⇒ <code>Promise.&lt;string&gt;</code>
+#### ghFileImporter.fetchFileContents(owner, repo, path, ref) ⇒ <code>Promise.&lt;string&gt;</code>
 Retrieves a path's contents.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
@@ -272,7 +272,7 @@ Retrieves a path's contents.
 
 <a name="GhFileImporter+fetchFileContentsFromUrl"></a>
 
-### ghFileImporter.fetchFileContentsFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
+#### ghFileImporter.fetchFileContentsFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
 Retrieves the file contents from the URL provided.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
@@ -289,7 +289,7 @@ Retrieves the file contents from the URL provided.
 
 <a name="GhFileImporter+importContents"></a>
 
-### ghFileImporter.importContents(url) ⇒ <code>Promise.&lt;string&gt;</code>
+#### ghFileImporter.importContents(url) ⇒ <code>Promise.&lt;string&gt;</code>
 Imports a file into the directory provided for the `destDir` option.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
@@ -306,7 +306,7 @@ Imports a file into the directory provided for the `destDir` option.
 
 <a name="GhFileImporter+importContentsFromUrl"></a>
 
-### ghFileImporter.importContentsFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
+#### ghFileImporter.importContentsFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
 Imports a file located at the supplied URL into the directory provided for
 the `destDir` option.
 
