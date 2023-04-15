@@ -1,23 +1,10 @@
 {
   "name": "@openinf/gh-file-importer",
-  "version": "2.0.1",
+  "version": "0.0.0-development",
   "description": "Utility that imports arbitrary files from remote GitHub repositories",
+  "packageManager": "pnpm@8.2.0",
   "engines": {
-    "node": "^14.15.0 || ^16.13.0 || ^18.12.0",
-    "npm": "^6.14.8 || ^8.1.0 || ^8.19.2 || ^9.0.0",
-    "npx": "^6.14.8 || ^8.1.0 || ^8.19.2 || ^9.0.0"
-  },
-  "main": "./lib/index.js",
-  "types": "./types/index.d.ts",
-  "scripts": {
-    "prepare": "npm run compile-src && npm run compile-doc",
-    "compile-src": "tsc --project ./",
-    "compile-doc": "",
-    "test": "node ./test/index.spec.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/openinf/gh-file-importer.git"
+    "node": "^16.13.0"
   },
   "keywords": [
     "github",
@@ -25,12 +12,20 @@
     "file",
     "download"
   ],
+  "repository": "OpenINF/openinf-gh-file-importer",
+  "license": "MIT OR Apache-2.0",
   "author": "The OpenINF Authors",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/openinf/gh-file-importer/issues"
+  "directories": {
+    "lib": "lib",
+    "doc": "doc",
+    "test": "test"
   },
-  "homepage": "https://github.com/openinf/gh-file-importer#readme",
+  "scripts": {
+    "prepare": "npm run compile-src && npm run compile-doc",
+    "compile-src": "tsc --project ./",
+    "compile-doc": "",
+    "test": "node ./test/index.spec.js"
+  },
   "dependencies": {
     "@octokit/rest": "19.0.7",
     "@openinf/util-errors": "2.0.7",
