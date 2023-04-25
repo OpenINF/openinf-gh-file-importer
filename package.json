@@ -4,7 +4,7 @@
   "description": "Utility that imports arbitrary files from remote GitHub repositories",
   "packageManager": "pnpm@8.3.1",
   "engines": {
-    "node": "^16.13.0"
+    "node": "^18.0.0"
   },
   "keywords": [
     "github",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@types/console-log-level": "1.4.2",
-    "@types/node": "18.15.11",
+    "@types/node": "18.16.1",
     "tempy": "OpenINF/openinf-tempy#semver:^1.0.1",
     "typescript": "5.0.4"
   }
