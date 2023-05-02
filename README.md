@@ -387,7 +387,7 @@ us.
 [license-badge--shields]: https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg?logo=github 'License: MIT/Apache 2.0'
 [license-badge-url]: #license 'License: MIT/Apache 2.0'
 [matrix-badge--shields]: https://img.shields.io/badge/matrix-join%20chat-%2346BC99?logo=matrix 'Chat on Matrix'
-[matrix-url]: https://matrix.to/#/#openinf:matrix.org 'You&apos;re invited to talk on Matrix'
+[matrix-url]: https://matrix.to/#/#openinf-space:matrix.org 'You&apos;re invited to talk on Matrix'
 [npm-badge--shields]: https://img.shields.io/npm/v/@openinf/gh-file-importer/latest.svg?logo=npm&color=fe7d37 'View on npm'
 [npm-badge-url]: https://www.npmjs.com/package/@openinf/gh-file-importer#top 'View on npm'
 [open an issue]: https://github.com/OpenINF/openinf-gh-file-importer/issues
