@@ -1,9 +1,3 @@
-// Copyright 2021 The OpenINF Authors. All rights reserved. MIT license.
-
-// -----------------------------------------------------------------------------
-// Requirements
-// -----------------------------------------------------------------------------
-
 import {
   blueify,
   curlyQuote,
