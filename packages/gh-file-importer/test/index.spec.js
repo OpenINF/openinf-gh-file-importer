@@ -1,11 +1,3 @@
-/**
- * @license
- * Copyright OpenINF All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://open.inf.is/license
- */
-
 const { GhFileImporter } = require("../lib/index.js");
 const tempy = require("tempy");
 
