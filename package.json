@@ -27,7 +27,7 @@
     "test": "node ./test/index.spec.js"
   },
   "dependencies": {
-    "@octokit/rest": "19.0.7",
+    "@octokit/rest": "19.0.8",
     "@openinf/util-errors": "2.0.7",
     "@openinf/util-object": "2.0.1",
     "@openinf/util-text": "1.1.2",
