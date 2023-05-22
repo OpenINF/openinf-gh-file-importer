@@ -216,11 +216,11 @@ const ghFileImporter = new GhFileImporter({
 
 * [GhFileImporter](#GhFileImporter)
     * [new GhFileImporter(options)](#new_GhFileImporter_new)
-    * [.fetchMetadata(owner, repo, path, ref)](#GhFileImporter+fetchMetadata) ⇒ <code>Promise.&lt;any&gt;</code>
-    * [.fetchFileContents(owner, repo, path, ref)](#GhFileImporter+fetchFileContents) ⇒ <code>Promise.&lt;string&gt;</code>
-    * [.fetchFileContentsFromUrl(url)](#GhFileImporter+fetchFileContentsFromUrl) ⇒ <code>Promise.&lt;string&gt;</code>
-    * [.importContents(url)](#GhFileImporter+importContents) ⇒ <code>Promise.&lt;string&gt;</code>
-    * [.importContentsFromUrl(url)](#GhFileImporter+importContentsFromUrl) ⇒ <code>Promise.&lt;string&gt;</code>
+    * [.fetchMetadata(owner, repo, path, ref)](#GhFileImporter+fetchMetadata) ⇒ <code>Promise&lt;any&gt;</code>
+    * [.fetchFileContents(owner, repo, path, ref)](#GhFileImporter+fetchFileContents) ⇒ <code>Promise&lt;string&gt;</code>
+    * [.fetchFileContentsFromUrl(url)](#GhFileImporter+fetchFileContentsFromUrl) ⇒ <code>Promise&lt;string&gt;</code>
+    * [.importContents(url)](#GhFileImporter+importContents) ⇒ <code>Promise&lt;string&gt;</code>
+    * [.importContentsFromUrl(url)](#GhFileImporter+importContentsFromUrl) ⇒ <code>Promise&lt;string&gt;</code>
 
 <a name="new_GhFileImporter_new"></a>
 
@@ -242,11 +242,11 @@ Creates an instance of GhFileImporter.
 
 <a name="GhFileImporter+fetchMetadata"></a>
 
-#### ghFileImporter.fetchMetadata(owner, repo, path, ref) ⇒ <code>Promise.&lt;any&gt;</code>
+#### ghFileImporter.fetchMetadata(owner, repo, path, ref) ⇒ <code>Promise&lt;any&gt;</code>
 Retrieves a repo or path's metadata.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;any&gt;</code> - An object containing the metadata repo or path's
+**Returns**: <code>Promise&lt;any&gt;</code> - An object containing the metadata repo or path's
  metadata.  
 **Throws**:
 
@@ -265,11 +265,11 @@ Retrieves a repo or path's metadata.
 
 <a name="GhFileImporter+fetchFileContents"></a>
 
-#### ghFileImporter.fetchFileContents(owner, repo, path, ref) ⇒ <code>Promise.&lt;string&gt;</code>
+#### ghFileImporter.fetchFileContents(owner, repo, path, ref) ⇒ <code>Promise&lt;string&gt;</code>
 Retrieves a path's contents.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Returns**: <code>Promise&lt;string&gt;</code> - The file contents.  
 **Throws**:
 
 - <code>InvalidArgTypeError</code> 
@@ -286,11 +286,11 @@ Retrieves a path's contents.
 
 <a name="GhFileImporter+fetchFileContentsFromUrl"></a>
 
-#### ghFileImporter.fetchFileContentsFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
+#### ghFileImporter.fetchFileContentsFromUrl(url) ⇒ <code>Promise&lt;string&gt;</code>
 Retrieves the file contents from the URL provided.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Returns**: <code>Promise&lt;string&gt;</code> - The file contents.  
 **Throws**:
 
 - <code>InvalidArgTypeError</code> 
@@ -303,11 +303,11 @@ Retrieves the file contents from the URL provided.
 
 <a name="GhFileImporter+importContents"></a>
 
-#### ghFileImporter.importContents(url) ⇒ <code>Promise.&lt;string&gt;</code>
+#### ghFileImporter.importContents(url) ⇒ <code>Promise&lt;string&gt;</code>
 Imports a file into the directory provided for the `destDir` option.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Returns**: <code>Promise&lt;string&gt;</code> - The file contents.  
 **Throws**:
 
 - <code>InvalidArgTypeError</code> 
@@ -320,12 +320,12 @@ Imports a file into the directory provided for the `destDir` option.
 
 <a name="GhFileImporter+importContentsFromUrl"></a>
 
-#### ghFileImporter.importContentsFromUrl(url) ⇒ <code>Promise.&lt;string&gt;</code>
+#### ghFileImporter.importContentsFromUrl(url) ⇒ <code>Promise&lt;string&gt;</code>
 Imports a file located at the supplied URL into the directory provided for
 the `destDir` option.
 
 **Kind**: instance method of [<code>GhFileImporter</code>](#GhFileImporter)  
-**Returns**: <code>Promise.&lt;string&gt;</code> - The file contents.  
+**Returns**: <code>Promise&lt;string&gt;</code> - The file contents.  
 **Throws**:
 
 - <code>InvalidArgTypeError</code> 
