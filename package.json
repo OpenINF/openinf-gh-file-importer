@@ -2,7 +2,7 @@
   "name": "@openinf/gh-file-importer",
   "version": "0.0.0-development",
   "description": "Utility that imports arbitrary files from remote GitHub repositories",
-  "packageManager": "pnpm@8.6.2",
+  "packageManager": "pnpm@8.6.3",
   "engines": {
     "node": "^18.0.0"
   },
