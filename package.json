@@ -1,43 +1,14 @@
 {
-  "name": "@openinf/gh-file-importer",
+  "name": "@openinf-internal/gh-file-importer-monorepo",
+  "private": true,
   "version": "0.0.0-development",
-  "description": "Utility that imports arbitrary files from remote GitHub repositories",
+  "description": "Package-based monorepo for @openinf/gh-file-importer and friends",
+  "workspaces": ["packages/*"],
   "packageManager": "pnpm@8.6.3",
-  "engines": {
-    "node": "^18.0.0"
-  },
-  "keywords": [
-    "github",
-    "repository",
-    "file",
-    "download"
-  ],
-  "repository": "OpenINF/openinf-gh-file-importer",
   "license": "MIT OR Apache-2.0",
   "author": "The OpenINF Authors",
-  "directories": {
-    "lib": "lib",
-    "doc": "doc",
-    "test": "test"
-  },
-  "scripts": {
-    "prepare": "npm run compile-src && npm run compile-doc",
-    "compile-src": "tsc --project ./",
-    "compile-doc": "",
-    "test": "node ./test/index.spec.js"
-  },
-  "dependencies": {
-    "@octokit/rest": "19.0.7",
-    "@openinf/util-errors": "2.0.7",
-    "@openinf/util-object": "2.0.1",
-    "@openinf/util-text": "1.1.2",
-    "console-log-level": "1.4.1",
-    "undici": "5.22.1"
-  },
   "devDependencies": {
-    "@types/console-log-level": "1.4.2",
-    "@types/node": "18.x.x",
-    "tempy": "OpenINF/openinf-tempy#semver:^1.0.1",
+    "@types/node": "20.x.x",
     "typescript": "5.1.3"
   }
 }
